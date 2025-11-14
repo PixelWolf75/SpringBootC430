@@ -23,10 +23,10 @@ public class TaskController {
         return ResponseEntity.ok(tasks);
     }
 
-    @PostMapping("/add")
-    public ResponseEntity<Task> addTask(@RequestBody Task task) {
-        Task createdTask = taskService.addTask(task);
-        return ResponseEntity.status(HttpStatus.CREATED).body(createdTask);
+    @PostMapping
+    public ResponseEntity<Task> addTask(@RequestBody Task task, @RequestParam Long categoryId) {
+        Task createdTask = taskService.createTask(task, categoryId);
+        return new ResponseEntity<>(createdTask, HttpStatus.CREATED);
     }
 
     @GetMapping("/{id}")
@@ -35,7 +35,7 @@ public class TaskController {
         return ResponseEntity.ok(task);
     }
 
-    @GetMapping("/category/{categoryId}")
+    @GetMapping("/category/{id}")
     public ResponseEntity<List<Task>> getTasksByCategory(@PathVariable Long categoryId) {
         List<Task> tasks = taskService.getTasksByCategory(categoryId);
         return ResponseEntity.ok(tasks);
