@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/TaskMaster/TaskMaster.iml" filepath="$PROJECT_DIR$/TaskMaster/TaskMaster.iml" />
       <module fileurl="file://$PROJECT_DIR$/TaskTracker/.idea/modules/TaskTracker/TaskTracker.main.iml" filepath="$PROJECT_DIR$/TaskTracker/.idea/modules/TaskTracker/TaskTracker.main.iml" />
       <module fileurl="file://$PROJECT_DIR$/TaskTracker/.idea/modules/TaskTracker/TaskTracker.test.iml" filepath="$PROJECT_DIR$/TaskTracker/.idea/modules/TaskTracker/TaskTracker.test.iml" />
     </modules>
