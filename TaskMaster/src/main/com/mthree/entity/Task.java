@@ -3,7 +3,6 @@ package com.mthree.entity;
 import java.time.LocalDate;
 import jakarta.persistence.*;
 
-/*
 @Entity
 public class Task {
 
@@ -25,6 +24,5 @@ public class Task {
     @JoinColumn(name = "category_id")
     private Category category;
 }
-*/
 
 
