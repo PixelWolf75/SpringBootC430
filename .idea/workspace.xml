@@ -4,26 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6d30a18b-58cb-460e-a490-09fe334fe451" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/sbt__scala_sdk_3_3_7.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/TaskTracker.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sbt.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/scala_compiler.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/scala_settings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TaskMaster.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TaskMaster/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/TaskMaster/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TaskMaster/src/main/com/mthree/Main.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TaskMaster/src/main/com/mthree/entity/Category.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TaskMaster/src/main/com/mthree/entity/Priority.java" beforeDir="false" afterPath="$PROJECT_DIR$/TaskMaster/src/main/java/com/mthree/entity/Category.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TaskMaster/src/main/com/mthree/entity/Task.java" beforeDir="false" />
-    </list>
+    <list default="true" id="a8888b0f-de1f-4cc2-b5db-7dc8e1f5d83b" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -48,9 +29,9 @@
   <component name="ProjectCodeStyleSettingsMigration">
     <option name="version" value="2" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 0
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 0
+}</component>
   <component name="ProjectId" id="35SwndYlzuvBH32hmjAK9RV4YWo" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -64,12 +45,12 @@
     "ModuleVcsDetector.initialDetectionPerformed": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "Eric-ProjectStructure",
     "last_opened_file_path": "C:/Users/eric/Documents/GitHub/SpringBootC430",
     "onboarding.tips.debug.path": "C:/Users/eric/Documents/GitHub/SpringBootC430/TaskMaster/src/main/java/Unknown/Main.java",
-    "project.structure.last.edited": "Facets",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.2"
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "preferences.lookFeel"
   }
 }]]></component>
   <component name="RunManager" selected="Application.com.mthree.Main">
@@ -144,11 +125,6 @@
           <url>file://$PROJECT_DIR$/TaskMaster/src/main/com/mthree/Main.java</url>
           <line>4</line>
           <option name="timeStamp" value="2" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/TaskMaster/src/main/java/com/mthree/Main.java</url>
-          <line>13</line>
-          <option name="timeStamp" value="3" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
