@@ -7,10 +7,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import com.mthree.service.CategoryService;
+import scala.collection.immutable.List; // Scala List
 
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
 
 @RestController
 @CrossOrigin
@@ -27,7 +26,7 @@ public class CategoryController {
 
     @GetMapping("/categories")
     public ResponseEntity<List<Category>> getCategories(){
-        List<Category> categories = (List<Category>) categoryService.getAllCategories();
+        List<Category> categories = categoryService.getAllCategories();
         return ResponseEntity.status(HttpStatus.OK).body(categories);
     }
 
