@@ -43,7 +43,8 @@ public class CategoryController {
         return new ResponseEntity<Category>(category, HttpStatus.OK);
     }
 
-    @DeleteMapping("/category/{id}")
+    //changed /category/{id} to /categories/{id} to match previous code
+    @DeleteMapping("/categories/{id}")
     public ResponseEntity<Void> deleteCategory(@PathVariable("id") Long id){
         categoryService.deleteCategory(id);
         return new ResponseEntity<Void>(HttpStatus.NO_CONTENT);

@@ -33,7 +33,8 @@ public class TaskController {
         return ResponseEntity.ok(task);
     }
 
-    @GetMapping("/category/{id}")
+    //changed /category/{id} to /category/{categoryId} as there was a mismatch between @GetMapping and @PathVariable
+    @GetMapping("/category/{categoryId}")
     public ResponseEntity<List<Task>> getTasksByCategory(@PathVariable Long categoryId) {
         List<Task> tasks = (List<Task>) taskService.getTasksByCategory(categoryId);
         return ResponseEntity.ok(tasks);

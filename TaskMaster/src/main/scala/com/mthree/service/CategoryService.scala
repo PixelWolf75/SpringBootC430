@@ -5,6 +5,7 @@ import com.mthree.repository.CategoryRepo
 import com.mthree.exception._
 import org.springframework.stereotype.Service
 
+
 import scala.jdk.CollectionConverters._
 
 @Service
@@ -27,8 +28,9 @@ class CategoryService(private val categoryRepository: CategoryRepo) {
     categoryRepository.save(category)
   }
 
-  def getAllCategories(): List[Category] = {
-    categoryRepository.findAll().asScala.toList
+  //changed this to return java list as I was getting errors in Postman as controller expects java list
+  def getAllCategories: java.util.List[Category] = {
+    categoryRepository.findAll()
   }
 
   def getCategoryById(id: Long): Category = {

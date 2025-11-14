@@ -29,8 +29,9 @@ class TaskService(
     taskRepository.save(task)
   }
 
-  def getAllTasks(): List[Task] = {
-    taskRepository.findAll().asScala.toList
+  //changed this to return java list as I was getting errors in Postman as controller expects java list
+  def getAllTasks(): java.util.List[Task] = {
+    taskRepository.findAll()
   }
 
   def getTaskById(id: Long): Task = {
@@ -39,12 +40,13 @@ class TaskService(
     )
   }
 
-  def getTasksByCategory(categoryId: Long): List[Task] = {
+  //changed this to return java list as I was getting errors in Postman as controller expects java list
+  def getTasksByCategory(categoryId: Long): java.util.List[Task] = {
     val category = categoryRepository.findById(categoryId).orElseThrow(
       () => new ResourceNotFoundException(s"Category with ID $categoryId not found")
     )
 
-    category.getTasks.asScala.toList
+    category.getTasks
   }
 
   def updateTask(id: Long, updatedTask: Task): Task = {
