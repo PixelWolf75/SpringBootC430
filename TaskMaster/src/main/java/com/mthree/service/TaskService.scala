@@ -1,7 +1,7 @@
 package com.mthree.service
 
 import com.mthree.entity.{Category, Task}
-import com.mthree.repository.{CategoryRepository, TaskRepository}
+import com.mthree.repository.{CategoryRepo, TaskRepo}
 import com.mthree.exception.ResourceNotFoundException
 import org.springframework.stereotype.Service
 
@@ -9,8 +9,8 @@ import scala.jdk.CollectionConverters._
 
 @Service
 class TaskService(
-                   private val taskRepository: TaskRepository,
-                   private val categoryRepository: CategoryRepository
+                   private val taskRepository: TaskRepo,
+                   private val categoryRepository: CategoryRepo
                  ) {
 
   def createTask(task: Task, categoryId: Long): Task = {

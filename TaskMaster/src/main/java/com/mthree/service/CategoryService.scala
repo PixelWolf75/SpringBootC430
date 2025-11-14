@@ -1,7 +1,7 @@
 package com.mthree.service
 
 import com.mthree.entity.Category
-import com.mthree.repository.CategoryRepository
+import com.mthree.repository.CategoryRepo
 import com.mthree.exception.ResourceNotFoundException
 import org.springframework.stereotype.Service
 
@@ -9,7 +9,7 @@ import java.util.Optional
 import scala.jdk.CollectionConverters._
 
 @Service
-class CategoryService(private val categoryRepository: CategoryRepository) {
+class CategoryService(private val categoryRepository: CategoryRepo) {
 
   def createCategory(name: String): Category = {
     val category = new Category()
