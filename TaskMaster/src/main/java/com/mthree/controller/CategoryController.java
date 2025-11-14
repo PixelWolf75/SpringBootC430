@@ -37,7 +37,7 @@ public class CategoryController {
 
     @PutMapping("/categories/{id}")
     public ResponseEntity<Category> updateCategory(@PathVariable("id") Long id, @RequestBody Category category){
-        categoryRepo.save(category); //Will creeate new row if the id field isn't filled
+        categoryRepo.save(category); //Will create new row if the id field isn't filled
         return new ResponseEntity<Category>(category, HttpStatus.OK);
     }
 
