@@ -1,6 +1,9 @@
 package com.mthree.service;
 
 import com.mthree.entity.Category;
+import com.mthree.exception.BadRequestException;
+import com.mthree.exception.InvalidDataEnteredException;
+import com.mthree.exception.ResourceAlreadyExistsException;
 import com.mthree.exception.ResourceNotFoundException;
 import com.mthree.repository.CategoryRepo;
 import org.junit.jupiter.api.BeforeEach;
@@ -51,4 +54,28 @@ class CategoryServiceTest {
         when(categoryRepo.findById(99L)).thenReturn(Optional.empty());
         assertThrows(ResourceNotFoundException.class, () -> categoryService.getCategoryById(99L));
     }
+
+    @Test
+    void testCreateCategory_EmptyName() {
+        assertThrows(BadRequestException.class, () -> categoryService.createCategory(""));
+    }
+
+
+    @Test
+    void testCreateCategory_InvalidCharacters() {
+        assertThrows(InvalidDataEnteredException.class, () -> categoryService.createCategory("##$$"));
+    }
+
+    @Test
+    void testCreateCategory_AlreadyExists() {
+        Category c = new Category();
+        c.setName("Work");
+
+        when(categoryRepo.findByName("Work")).thenReturn(Optional.of(c));
+
+        assertThrows(ResourceAlreadyExistsException.class,
+                () -> categoryService.createCategory("Work"));
+    }
+
+
 }

@@ -2,7 +2,7 @@ package com.mthree.service
 
 import com.mthree.entity.{Category, Task}
 import com.mthree.repository.{CategoryRepo, TaskRepo}
-import com.mthree.exception.ResourceNotFoundException
+import com.mthree.exception._
 import org.springframework.stereotype.Service
 
 import scala.jdk.CollectionConverters._
@@ -14,6 +14,13 @@ class TaskService(
                  ) {
 
   def createTask(task: Task, categoryId: Long): Task = {
+
+    if (task.getTitle == null || task.getTitle.trim.isEmpty)
+      throw new BadRequestException("Task title cannot be empty")
+
+    if (task.getDueDate == null)
+      throw new InvalidDataEnteredException("Due date cannot be null")
+
     val category = categoryRepository.findById(categoryId).orElseThrow(
       () => new ResourceNotFoundException(s"Category with ID $categoryId not found")
     )
@@ -43,6 +50,12 @@ class TaskService(
   def updateTask(id: Long, updatedTask: Task): Task = {
     val existingTask = getTaskById(id)
 
+    if (updatedTask.getTitle == null || updatedTask.getTitle.trim.isEmpty)
+      throw new BadRequestException("Task title cannot be empty")
+
+    if (updatedTask.getDueDate == null)
+      throw new InvalidDataEnteredException("Due date cannot be null")
+
     existingTask.setTitle(updatedTask.getTitle)
     existingTask.setDescription(updatedTask.getDescription)
     existingTask.setDueDate(updatedTask.getDueDate)
@@ -57,4 +70,3 @@ class TaskService(
     taskRepository.delete(task)
   }
 }
-

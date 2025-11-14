@@ -2,6 +2,8 @@ package com.mthree.service;
 
 import com.mthree.entity.Category;
 import com.mthree.entity.Task;
+import com.mthree.exception.BadRequestException;
+import com.mthree.exception.InvalidDataEnteredException;
 import com.mthree.exception.ResourceNotFoundException;
 import com.mthree.repository.CategoryRepo;
 import com.mthree.repository.TaskRepo;
@@ -59,4 +61,39 @@ class TaskServiceTest {
         when(taskRepo.findById(99L)).thenReturn(Optional.empty());
         assertThrows(ResourceNotFoundException.class, () -> taskService.getTaskById(99L));
     }
+
+    @Test
+    void testCreateTask_EmptyTitle() {
+        Task t = new Task();
+        t.setTitle("");
+
+        assertThrows(BadRequestException.class,
+                () -> taskService.createTask(t, 1L));
+    }
+
+    @Test
+    void testUpdateTask_EmptyTitle() {
+        Task updated = new Task();
+        updated.setTitle("");
+
+        when(taskRepo.findById(1L)).thenReturn(Optional.of(new Task()));
+
+        assertThrows(BadRequestException.class,
+                () -> taskService.updateTask(1L, updated));
+    }
+
+    @Test
+    void testUpdateTask_NoDueDate() {
+        Task updated = new Task();
+        updated.setTitle("Valid title");
+
+        when(taskRepo.findById(1L)).thenReturn(Optional.of(new Task()));
+
+        assertThrows(InvalidDataEnteredException.class,
+                () -> taskService.updateTask(1L, updated));
+    }
+
+
+
+
 }
