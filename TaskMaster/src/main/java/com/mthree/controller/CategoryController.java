@@ -6,12 +6,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import com.mthree.service.CategoryService;
 
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@Controller
+@RestController
+@CrossOrigin
 public class CategoryController {
 
     @Autowired
@@ -19,13 +21,13 @@ public class CategoryController {
 
     @PostMapping("/categories")
     public ResponseEntity<Void> addCategory(@RequestBody  Category category){
-        categoryService.createCategory(category);
+        categoryService.createCategory(category.getName());
         return new ResponseEntity<Void>(HttpStatus.CREATED);
     }
 
     @GetMapping("/categories")
     public ResponseEntity<List<Category>> getCategories(){
-        List<Category> categories = categoryService.getAllCategories();
+        List<Category> categories = (List<Category>) categoryService.getAllCategories();
         return ResponseEntity.status(HttpStatus.OK).body(categories);
     }
 
@@ -37,7 +39,7 @@ public class CategoryController {
 
     @PutMapping("/categories/{id}")
     public ResponseEntity<Category> updateCategory(@PathVariable("id") Long id, @RequestBody Category category){
-        categoryService.updateCategory(id);
+        categoryService.updateCategory(id, category.getName());
         return new ResponseEntity<Category>(category, HttpStatus.OK);
     }
 
