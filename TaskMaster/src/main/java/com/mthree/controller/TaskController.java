@@ -1,12 +1,10 @@
 package com.mthree.controller;
-
 import com.mthree.entity.Task;
 import com.mthree.service.TaskService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
 
 @RestController
@@ -19,7 +17,7 @@ public class TaskController {
 
     @GetMapping
     public ResponseEntity<List<Task>> getAllTasks() {
-        List<Task> tasks = taskService.getAllTasks();
+        List<Task> tasks = (List<Task>) taskService.getAllTasks();
         return ResponseEntity.ok(tasks);
     }
 
@@ -37,7 +35,7 @@ public class TaskController {
 
     @GetMapping("/category/{id}")
     public ResponseEntity<List<Task>> getTasksByCategory(@PathVariable Long categoryId) {
-        List<Task> tasks = taskService.getTasksByCategory(categoryId);
+        List<Task> tasks = (List<Task>) taskService.getTasksByCategory(categoryId);
         return ResponseEntity.ok(tasks);
     }
 
