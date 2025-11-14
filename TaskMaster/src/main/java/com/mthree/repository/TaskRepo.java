@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface TaskRepo extends JpaRepository<Task, Integer> {
+public interface TaskRepo extends JpaRepository<Task, Long> {
 
     //Find tasks by category method not included in JPA
     List<Task> findByCategory(Category category);
