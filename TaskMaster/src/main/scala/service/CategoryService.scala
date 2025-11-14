@@ -36,7 +36,7 @@ class CategoryService(private val categoryRepository: CategoryRepo) {
   def deleteCategory(id: Long): Unit = {
     val category = getCategoryById(id)
 
-    // Bonus requirement: prevent deleting if tasks exist
+    // prevent deleting if tasks exist
     if (category.getTasks != null && !category.getTasks.isEmpty) {
       throw new IllegalStateException("Cannot delete category with existing tasks")
     }
