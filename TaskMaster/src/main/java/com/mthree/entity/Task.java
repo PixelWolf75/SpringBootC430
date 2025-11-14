@@ -24,6 +24,7 @@ public class Task {
     @JoinColumn(name = "category_id")
     private Category category;
 
+    
     public Task() {}
 
     public Task(String title, String description, LocalDate dueDate,
