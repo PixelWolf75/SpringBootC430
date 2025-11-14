@@ -15,35 +15,35 @@ import java.util.List;
 public class CategoryController {
 
     @Autowired
-    CategoryRepo categoryRepo;
+    CategoryService categoryService;
 
     @PostMapping("/categories")
     public ResponseEntity<Void> addCategory(@RequestBody  Category category){
-        categoryRepo.save(category);
+        categoryService.createCategory(category);
         return new ResponseEntity<Void>(HttpStatus.CREATED);
     }
 
     @GetMapping("/categories")
     public ResponseEntity<List<Category>> getCategories(){
-        List<Category> categories = categoryRepo.findAll();
+        List<Category> categories = categoryService.getAllCategories();
         return ResponseEntity.status(HttpStatus.OK).body(categories);
     }
 
     @GetMapping("/categories/{id}")
     public ResponseEntity<Category> getCategoryById(@PathVariable("id") Long id){
-        Category category = categoryRepo.findById(id).orElse(null);
+        Category category = categoryService.getCategoryById(id);
         return new ResponseEntity<Category>(category, HttpStatus.OK);
     }
 
     @PutMapping("/categories/{id}")
     public ResponseEntity<Category> updateCategory(@PathVariable("id") Long id, @RequestBody Category category){
-        categoryRepo.save(category); //Will create new row if the id field isn't filled
+        categoryService.updateCategory(id);
         return new ResponseEntity<Category>(category, HttpStatus.OK);
     }
 
     @DeleteMapping("/category/{id}")
     public ResponseEntity<Void> deleteCategory(@PathVariable("id") Long id){
-        categoryRepo.deleteById(id);
+        categoryService.deleteCategory(id);
         return new ResponseEntity<Void>(HttpStatus.NO_CONTENT);
     }
 
